@@ -27,6 +27,8 @@ async function newURL(req, res) {
     return document.documentElement.outerHTML;
   });
 
+  res.send(result);
+
   await browser.close();
 }
 
