@@ -23,7 +23,7 @@ async function newURL(req, res) {
   let result = await page.evaluate(() => {
     return { html: document.documentElement.outerHTML, url: location.origin };
   });
-  result.html = absolutify(result.html, `/url=${result.url}`);
+  result.html = absolutify(result.html, `/?url=${result.url}`);
 
   //Test
 
