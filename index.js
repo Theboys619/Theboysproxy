@@ -20,8 +20,10 @@ const port = process.env.PORT || 65515;
 })();
 
 app.get("/", (req, res) => {
-  if (!req.query) {
+  if (!req.query.url) {
     res.end("No URL provided");
+  } else {
+    res.end("OK")
   }
 });
 
