@@ -23,8 +23,8 @@ async function newURL(req, res) {
 
   await page.goto(url);
 
-  let result = await page.evaluate((document) => {
-    res.send(document.documentElement.outerHTML);
+  let result = await page.evaluate(() => {
+    return document.documentElement.outerHTML;
   });
 
   await browser.close();
