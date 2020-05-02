@@ -4,13 +4,13 @@ const puppeteer = require("puppeteer");
 const port = process.env.PORT || 65515;
 let browser;
 
-(async () => {
-  browser = await puppeteer.launch({
-    headless: true
-  });
-})
-
 async function newURL(req, res) {
+  if (!browser) {
+    browser = await puppeteer.launch({
+      headless: true
+    });
+  }
+
   const page = await browser.newPage();
   let url = "";
 
