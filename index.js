@@ -7,7 +7,8 @@ let browser;
 async function newURL(req, res) {
   if (!browser) {
     browser = await puppeteer.launch({
-      headless: true
+      headless: true,
+      args: ['--no-sandbox']
     });
   }
 
