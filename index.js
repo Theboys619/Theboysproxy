@@ -27,7 +27,7 @@ async function newURL(req, res) {
 
   //Test
 
-  res.send(result);
+  res.send(result.html);
 
   await browser.close();
 }
