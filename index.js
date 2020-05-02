@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const puppeteer = require("puppeteer");
+const absolutify = require("absolutify");
 const port = process.env.PORT || 65515;
 
 async function newURL(req, res) {
@@ -20,8 +21,9 @@ async function newURL(req, res) {
   await page.goto(url);
 
   let result = await page.evaluate(() => {
-    return document.documentElement.outerHTML;
+    return { html: document.documentElement.outerHTML, url: location.origin };
   });
+  result.html = absolutify(result.html, `/url=${result.url}`);
 
   //Test
 

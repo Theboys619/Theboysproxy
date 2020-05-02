@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Theboys619/Theboysproxy#readme",
   "dependencies": {
+    "absolutify": "^0.1.0",
     "express": "^4.17.1",
     "puppeteer": "^3.0.2"
   }
