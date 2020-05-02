@@ -2,16 +2,12 @@ const express = require("express");
 const app = express();
 const puppeteer = require("puppeteer");
 const port = process.env.PORT || 65515;
-let browser;
 
 async function newURL(req, res) {
-  if (!browser) {
-    browser = await puppeteer.launch({
+  const browser = await puppeteer.launch({
       headless: true,
       args: ['--no-sandbox']
     });
-  }
-
   const page = await browser.newPage();
   let url = "";
 
